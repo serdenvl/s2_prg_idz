@@ -124,7 +124,7 @@ int *new_array(int length)
 
 int *resize_array(int *array, int new_length)
 {
-    return (int *)realloc(array, new_length);
+    return (int *)realloc(array, new_length*sizeof(int));
 }
 
 int **new_matrix(int M, int N)
