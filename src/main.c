@@ -19,7 +19,7 @@ int main()
 {
     localize();
 
-    voidfun* task[] = {task1, task2, task3};
+    voidfun* task[] = {task1, task2, task3, task4};
 
     int buff = 0;
     while(1)
