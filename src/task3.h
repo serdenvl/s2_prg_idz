@@ -55,5 +55,6 @@ int task3()
     red_print("Измененная матрица: ");
     print_matrix(matrix, M, N);
 
+    free_matrix(matrix, M);
     getchar();
 }
