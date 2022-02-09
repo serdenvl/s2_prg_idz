@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include "utils.h"
 
-int index_of_possible(int **matrix, int M, int N)
+// взвращает индекс первого столбца из положительных элементов
+int index_of_possible_column(int **matrix, int M, int N)
 {
     for (int j = 0; j < N; ++j)
         for (int i = 0; i < M; ++i)
@@ -37,17 +38,21 @@ int task3()
     red_print("Данная матрица: ");
     print_matrix(matrix, M, N);
 
-    int ind = index_of_possible(matrix, M, N);
+    int ind = index_of_possible_column(matrix, M, N);
 
+    // вставка столбца
     if (ind != -1)
     {
+        // расширение
         N += 1;
         matrix = realloc(matrix, N * sizeof(int *));
 
+        // раздвигание
         for (int i = 0; i < M; ++i)
             for (int j = N-1; ind < j; --j)
                 swap(&matrix[i][j - 1], &matrix[i][j]);
         
+        // запись
         for(int i = 0; i < M; ++i)
             matrix[i][ind] = 1;
     }

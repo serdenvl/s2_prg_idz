@@ -2,13 +2,15 @@
 #include <stdlib.h>
 #include "utils.h"
 
-int num_sorted_col(int** matrix, int M, int N)
+// подсчёт количества столбцов отсортированных по убыванию 
+int num_sorted_column(int** matrix, int M, int N)
 {
     int count = 0;
 
     for(int i = 0; i < N; ++i)
     {
         for(int j = 0; j < M-1; ++j)
+            // нарушение порядка
             if(matrix[j][i] < matrix[j+1][i])
             {
                 --count;
@@ -44,7 +46,7 @@ int task2()
     print_matrix(matrix, M, N);
 
     red_print("Количество: ");
-    printf("%d", num_sorted_col(matrix, M, N));
+    printf("%d", num_sorted_column(matrix, M, N));
 
     getchar();
 }

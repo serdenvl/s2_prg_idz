@@ -2,12 +2,18 @@
 #include <stdlib.h>
 #include "utils.h"
 
-void rotate180(int **matrix, int M)
+// поворот на 180
+void rotate_180(int **matrix, int M)
 {
     for (int i = 0; i < M / 2 + M % 2; ++i)
         for (int j = 0; j < M; ++j)
-            if (M % 2 == 0 || j < M / 2)
-                swap(&matrix[i][j], &matrix[M - 1 - i][M - 1 - j]);
+        {
+            // в случае серединной строки обработка до половины
+            if (M % 2 == 0 || j == M / 2)
+                break;
+
+            swap(&matrix[i][j], &matrix[M - 1 - i][M - 1 - j]);
+        }
 }
 
 /*
@@ -33,7 +39,7 @@ int task4()
     red_print("Данная матрица: ");
     print_matrix(matrix, M, M);
 
-    rotate180(matrix, M);
+    rotate_180(matrix, M);
 
     red_print("Измененная матрица: ");
     print_matrix(matrix, M, M);
