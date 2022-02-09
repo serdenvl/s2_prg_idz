@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "utils.h"
 
-#include "task1.h" //#include "task2.h" #include "task3.h" 
-//#include "task4.h" #include "task5.h" #include "task6.h" 
-//#include "task7.h" #include "task8.h" #include "task9.h" 
+#include "task1.h" #include "task2.h" #include "task3.h" 
+#include "task4.h" #include "task5.h" #include "task6.h" 
+#include "task7.h" #include "task8.h" #include "task9.h" 
 
 typedef void voidfun();
 #define task_len sizeof(task)/sizeof(voidfun*)
