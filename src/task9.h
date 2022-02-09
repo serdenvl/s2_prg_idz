@@ -18,7 +18,8 @@ int task9()
     localize();
     welcome(task_name, welcome_message);
 
-
+    red_print("Решения ещё нет");
+    return 0;
 
     getchar();
 }
