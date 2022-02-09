@@ -1,3 +1,6 @@
+#ifndef UTILS_H
+#define UTILS_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
@@ -141,6 +144,22 @@ void free_matrix(int **matrix, int M)
 
 // * ///////////////
 
+int *input_array(int length)
+{
+    int* array = new_array(length);
+    fill_array(array, length);
+    return array;
+}
+
+int **input_matrix(int M, int N)
+{
+    int** matrix = new_matrix(M, N);
+    fill_matrix(matrix, M, N);
+    return matrix;
+}
+
+// * ///////////////
+
 void print_array(int *array, int length)
 {
     printf("| ");
@@ -210,7 +229,7 @@ void randomize_matrix_s(int M, int N, int matrix[M][N], int min, int max)
 #define default_min 10
 #define default_max 99
 
-void input_array(int *array, int length)
+void fill_array(int *array, int length)
 {
     const v = scan_variant("Вариант заполнения: ",
                            (char *[]){
@@ -235,7 +254,7 @@ void input_array(int *array, int length)
     }
 }
 
-void input_matrix(int **matrix, int M, int N)
+void fill_matrix(int **matrix, int M, int N)
 {
     int v = scan_variant("Вариант заполнения: ",
                          (char *[]){
@@ -260,7 +279,7 @@ void input_matrix(int **matrix, int M, int N)
     }
 }
 
-void input_matrix_s(int M, int N, int matrix[M][N])
+void fill_matrix_s(int M, int N, int matrix[M][N])
 {
     const v = scan_variant("Вариант заполнения: ",
                            (char *[]){
@@ -303,3 +322,5 @@ int max(int a, int b)
 {
     return (a > b) ? a : b;
 }
+
+#endif
