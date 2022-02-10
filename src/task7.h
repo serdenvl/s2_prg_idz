@@ -20,7 +20,9 @@ int is_correct_date(struct Date date)
     if( 30+((date.month < 8) == date.month%2) < date.day )
         return 0;
     
-    if(date.month == 2 && (28 + (date.year%4==0) < date.day))
+    #define bs (date.year%100!=0 || date.year%400==0) && date.year%4 == 0 
+    
+    if(date.month == 2 && (28 + (bs) < date.day))
         return 0;
     
     return 1;
