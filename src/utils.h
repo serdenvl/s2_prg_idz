@@ -127,6 +127,16 @@ int *resize_array(int *array, int new_length)
     return (int *)realloc(array, new_length*sizeof(int));
 }
 
+int* shift_subarray(int* array, int start, int end, int new_start)
+{
+    int buff[end-start+1];
+    for(int i = start; i <= end; ++i)
+        buff[i-start] = array[i];
+    
+    for(int i = new_start; i <= (new_start-start)+end; ++i)
+        array[i] = buff[i-new_start];
+}
+
 int **new_matrix(int M, int N)
 {
     int **matrix = (int **)malloc(M * sizeof(int *));
