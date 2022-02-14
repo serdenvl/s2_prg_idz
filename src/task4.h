@@ -9,7 +9,7 @@ void rotate_180(int **matrix, int M)
         for (int j = 0; j < M; ++j)
         {
             // в случае серединной строки обработка до половины
-            if (M % 2 == 0 && j == M / 2)
+            if (M % 2 != 0 && i == M / 2 && j > M / 2)
                 break;
 
             swap(&matrix[i][j], &matrix[M - 1 - i][M - 1 - j]);
